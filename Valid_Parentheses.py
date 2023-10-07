@@ -17,23 +17,13 @@ Output: false
 
 class Solution:
     def isValid(self, s: str) -> bool:
-        open = {"(": 0, "[": 1, "{": 2}
-        closed = {0: ")", 1: "]", 2: "}"}
-        for brackets in open.keys():
-            if s.find(brackets) != -1:
-                if s.find(closed[open[brackets]]) != -1:
-                    open_bracket_index = s.index(brackets)
-                    closed_bracket_index = s.index(closed[open[brackets]])
-                    if closed_bracket_index - open_bracket_index == 1:
-                        return True
-                    else:
-                        return False
-                else:
-                    return False
-
-"""test_case = "()[]{}"
-test_case2 = "(){}}{"
-
-test = Solution()
-print(test.isValid("(]"))
-"""
+        brackets = dict(("()", "{}", "[]"))
+        open_brackets = "({["
+        stack = []
+        for br in s:
+            if br in open_brackets:
+                stack.append(br)
+                print(stack, br)
+            elif len(stack) == 0 or br != brackets[stack.pop()]:
+                return False
+        return len(stack) == 0
