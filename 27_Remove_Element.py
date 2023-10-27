@@ -4,7 +4,7 @@ class Solution:
         # Output: 2, nums = [0,1,4,0,3]
         # [0,1,2,2,0,4,2]
         val_count = 0
-        while 3 in nums:
+        while val in nums:
             val_count += 1
             nums.remove(3)
         element_number = len(nums)
