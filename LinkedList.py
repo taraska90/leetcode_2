@@ -1,28 +1,31 @@
-"""class Node:
-    def __init__(self, data):
-        self.data = data
+class Node:
+    def __init__(self, value=None):
+        self.value = value
         self.next = None
 
-    def __repr__(self):
-        return self.data
-
-class LinkedList:
-    def __init__(self):
-        self.head = None
-
-    def __repr__(self):
-        node = self.head
-        nodes = []
-        while node is not None:
-            nodes.append(node.data)
-            node = node.next
-        nodes.append("None")
-        return " -> ".join(nodes)"""
-
-class Node:
-    def __init__(self, data=None):
-        self.data = data
-
-class LinkedList():
+class SLinkedList:
     def __init__(self):
         self.headvalue = None
+
+    def printlist(self):
+        newval = self.headvalue
+        while newval:
+            print(newval.value)
+            newval = newval.next
+
+
+    def insert_beginning(self, begin_value):
+        new_node = Node(begin_value)
+        new_node.next = self.headvalue
+        self.headvalue =  new_node
+
+"""
+list1 = SLinkedList()
+list1.headvalue = Node(10)
+e2 = Node(20)
+e3 = Node(30)
+list1.headvalue.next = e2
+e2.next = e3
+list1.insert_beginning(5)
+list1.printlist()
+"""
