@@ -23,10 +23,17 @@ class SLinkedList:
                 last_node = newval
                 return last_node
 
+    def insert_node(self, value):
+        new_node = Node(value)
+        root = self.headvalue
+        while root:
+            root.next = new_node
+
+
     def insert_beginning(self, begin_value):
         new_node = Node(begin_value)
         new_node.next = self.headvalue
-        self.headvalue =  new_node
+        self.headvalue = new_node
 
     def insert_end(self, end_value, linked_list):
         new_end_node = Node(end_value)
@@ -60,4 +67,5 @@ list1.headvalue.next = e2
 e2.next = e3
 list1.insert_beginning(5)
 list1.printlist()
+list1.insert_node("Tue")
 """
