@@ -1,0 +1,5 @@
+sequence_number: 10
+action: permit
+proto: ip
+src: 172.255.136.0 0.0.0.255
+dst: any
